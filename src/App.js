@@ -66,7 +66,7 @@ function App() {
         return true
       } return false
     })
-    console.log("Filtered", filteredWords)
+    // console.log("Filtered", filteredWords)
     if(filteredWords.length>0){
       setWordsArray(filteredWords);
       let randomIndex = Math.floor(Math.random()*wordsArray.length)
