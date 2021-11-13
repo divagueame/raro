@@ -2,6 +2,7 @@ import './App.css';
 import Header from './Header'
 import UserInput from './UserInput';
 import GuessDisplay from './GuessDisplay';
+import GetHelp from './GetHelp';
 import { useState } from 'react';
 
 function App() {
@@ -80,9 +81,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      
+
       {!playing && <button onClick={()=>{setPlaying(true); triggerNext()}}>Start!</button>}
       {playing && <div>Current target word is: {currentWord.word}. Total words left: {wordsArray.length}</div>}
+      {playing && <GetHelp wordSrc={currentWord.imgSrc}/>}
       {playing && <GuessDisplay wordSrc={currentWord.imgSrc}/>}
       {playing &&<UserInput currentWord={currentWord.word} triggerNext={triggerNext}/>}
     </div>

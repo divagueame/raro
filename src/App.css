@@ -5,17 +5,24 @@ html {
 *, body {
   margin: 0;
   font-family: secular;
+  box-sizing: border-box;
 }
 
 .App {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
-  align-items: center;
-  /* border: 2px yellow solid; */
-  margin: 0 1rem;
+  /* align-items: stretch; */
+  border: 2px rgb(255, 0, 0) solid;
+  /* margin: 0 1rem; */
+  /* gap: 11rem; */
+  height: 100vh;
+  max-height: 100vh;
 }
 
+.App > * {
+  margin: 0 auto
+}
 header {
   background-color: rgb(255, 145, 0);
   padding: 1rem;
@@ -26,16 +33,23 @@ header {
   margin-bottom: 2rem;
 }
 button {
+  box-sizing:border-box;
   outline: none;
   border: 0;
   background-color: burlywood;
   padding: 2rem;
   font-size: 1rem;
+  border-radius: 221rem;
+  width: 50%;
 
 }
 button:hover {
   background-color: rgb(253, 207, 174);
   cursor: pointer;
+}
+button:active {
+  background-color: rgb(255, 255, 255);
+  outline: 2px rgb(160, 120, 74) solid;
 }
 
 input[type="text"] {
@@ -48,8 +62,8 @@ font-size: 2rem;
 
 }
 .guess-display-img {
-  /* width: 100vw; */
-  object-fit: fill;
+  max-width: 100%;
+  /* width: 20%; */
 }
 
 @font-face {

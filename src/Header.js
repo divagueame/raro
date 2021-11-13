@@ -1,6 +1,8 @@
 const Header = () => {
   return (
-    <header>Raro raro!</header>
+    <>
+    {/* <header>Raro raro!</header> */}
+    </>
   );
 }
  
