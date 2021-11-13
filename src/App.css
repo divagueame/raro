@@ -1,38 +1,59 @@
+html {
+  font-size: 22px;
+  font-family: secular;
+}
+*, body {
+  margin: 0;
+  font-family: secular;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* border: 2px yellow solid; */
+  margin: 0 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  background-color: rgb(255, 145, 0);
+  padding: 1rem;
+  border-radius: 0 0 1rem 1rem;
+  border-left: solid 2px  rgb(192, 106, 36);
+  border-bottom: solid 2px rgb(192, 106, 36);
+  border-right: solid 2px  rgb(192, 106, 36);
+  margin-bottom: 2rem;
+}
+button {
+  outline: none;
+  border: 0;
+  background-color: burlywood;
+  padding: 2rem;
+  font-size: 1rem;
+
+}
+button:hover {
+  background-color: rgb(253, 207, 174);
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"] {
+outline: none !important;
+border-color: #00000000;
+/* padding: 1rem; */
+border-bottom: 2px grey solid;
+/* border-radius: 1rem; */
+font-size: 2rem;
+
+}
+.guess-display-img {
+  /* width: 100vw; */
+  object-fit: fill;
+}
+
+@font-face {
+  font-family: secular;
+  src: url(SecularOne-Regular.ttf);
+  font-weight:300;
 }
