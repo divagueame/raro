@@ -13,7 +13,7 @@ html {
   justify-content: space-between;
   flex-direction: column;
   /* align-items: stretch; */
-  border: 2px rgb(255, 0, 0) solid;
+  /* border: 2px rgb(255, 0, 0) solid; */
   /* margin: 0 1rem; */
   /* gap: 11rem; */
   min-height: 100vh;
@@ -39,11 +39,10 @@ button {
   outline: none;
   border: 0;
   background-color: burlywood;
-  padding: 2rem;
+  padding: 1rem;
   font-size: 1rem;
-  border-radius: 221rem;
-  width: 50%;
-
+  border-radius: 2rem;
+  /* width: 50%; */
 }
 button:hover {
   background-color: rgb(253, 207, 174);
@@ -52,6 +51,13 @@ button:hover {
 button:active {
   background-color: rgb(255, 255, 255);
   outline: 2px rgb(160, 120, 74) solid;
+}
+
+.help-btn {
+  background-color: white;
+   padding: .3rem;
+   border: 1px solid blueviolet;
+   border-radius: 0;
 }
 
 input[type="text"] {
@@ -64,9 +70,75 @@ font-size: 2rem;
 
 }
 .guess-display-img {
-  max-width: 100%;
+  /* margin: 2em; */
+  padding: 1em;
+  /* max-width: 100%; */
   /* width: 20%; */
 }
+.thisBtn {background-color: cadetblue;
+position: relative;}
+
+
+.btn-transition {
+  background-color: blanchedalmond;
+}
+.btn-transition-enter,.btn-transition-appear {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.btn-transition-enter-active, .btn-transition-appear-active {
+  opacity: 1;
+  transition: all 400ms ease-in;
+  transform: scale(1);
+} 
+.btn-transition-enter-done, .btn-transition-appear-done {
+  /* display: none; */
+  /* transform: scale(0
+  p); */
+  opacity: 1;
+}
+
+.btn-transition-exit {
+  /* opacity: 1; */
+}
+
+.btn-transition-exit-active {
+  /* opacity: 0; */
+  transition: all 30ms;
+}
+.btn-transition-exit-done {
+  display: none;
+}
+
+
+.NextGameBtn {
+  background-color: cadetblue;
+  position: relative;
+}
+.NextGameBtnTransition-enter {
+  background-color: rgba(165, 42, 42, 1);
+  
+  
+}
+.NextGameBtnTransition-enter-active {
+  background-color: rgb(183, 201, 25);
+  transition: all 400ms;
+  top: 20px
+}
+
+.NextGameBtnTransition-enter-exit {
+  background-color: cadetblue;
+  
+}
+
+.NextGameBtnTransition-enter-exit-active,.NextGameBtnTransition-enter-done {
+  background-color: rgba(165, 42, 42, 1);
+  transition: all 400ms;
+  
+}
+
+
 
 @font-face {
   font-family: secular;

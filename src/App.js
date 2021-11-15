@@ -3,92 +3,132 @@ import Header from './Header'
 import UserInput from './UserInput';
 import GuessDisplay from './GuessDisplay';
 import GetHelp from './GetHelp';
-import { useState } from 'react';
+import NextGameButton from './NextGameButton';
+import { CSSTransition } from "react-transition-group";
+import {useState, useEffect } from 'react';
+import Collapsible from './Collapsible'
 
 function App() {
   let wordsBank = [{
     id: 1,
     word: 'globo',
     wordIndex: 3,
-    sentence: 'El globo es precioso.',
-    imgSrc: './img/037-hot air balloon.png',
+    sentence: 'El  es precioso.',
+    imgSrc: '/img/037-hot air balloon.png',
     seen: false
   },
-  {
-    id: 2,
-    word: 'bicicleta',
-    wordIndex: 3,
-    sentence: 'Es una bicicleta muy bonita.',
-    imgSrc: './img/025-bicycle.png',
-    seen: false
-  },
-  {
-    id: 3,
-    word: 'limusina',
-    wordIndex: 3,
-    sentence: 'Una limusina de alto nivel.',
-    imgSrc: './img/042-limousine.png',
-    seen: false
-  },
-  {
-    id: 4,
-    word: 'camion',
-    wordIndex: 3,
-    sentence: 'Este es un camion muy pesado.',
-    imgSrc: './img/048-truck.png',
-    seen: false
-  },
-  {
-    id: 5,
-    word: 'caravana',
-    wordIndex: 3,
-    sentence: 'Una caravana muy amplia.',
-    imgSrc: './img/050-caravan.png',
-    seen: false
-  },
-  {
-    id: 6,
-    word: 'coche',
-    wordIndex: 3,
-    sentence: 'Un coche muy util.',
-    imgSrc: './img/002-car.png',
-    seen: false
-  },]
+  // {
+  //   id: 2,
+  //   word: 'bicicleta',
+  //   wordIndex: 7,
+  //   sentence: 'Es una  muy bonita.',
+  //   imgSrc: '/img/025-bicycle.png',
+  //   seen: false
+  // },
+  // {
+  //   id: 3,
+  //   word: 'limusina',
+  //   wordIndex: 4,
+  //   sentence: 'Una  de alto nivel.',
+  //   imgSrc: '/img/042-limousine.png',
+  //   seen: false
+  // },
+  // {
+  //   id: 4,
+  //   word: 'camion',
+  //   wordIndex: 8,
+  //   sentence: 'Este es  un  muy pesado.',
+  //   imgSrc: '/img/048-truck.png',
+  //   seen: false
+  // },
+  // {
+  //   id: 5,
+  //   word: 'caravana',
+  //   wordIndex: 4,
+  //   sentence: 'Una  muy amplia.',
+  //   imgSrc: '/img/050-caravan.png',
+  //   seen: false
+  // },
+  // {
+  //   id: 6,
+  //   word: 'coche',
+  //   wordIndex: 3,
+  //   sentence: 'Un  muy util.',
+  //   imgSrc: '/img/002-car.png',
+  //   seen: false
+  // }
+]
 
-  const [currentWord, setCurrentWord] = useState();
   const [wordsArray, setWordsArray] = useState(wordsBank);
+  const [currentWord, setCurrentWord] = useState();
   const [playing,setPlaying] = useState(false);
+  const [helped,setHelped] = useState(false);
 
-  function triggerNext(){
-    
-    let filteredWords = wordsArray.filter((word)=>{
-      if (word!==currentWord){
-        return true
-      } return false
-    })
-    // console.log("Filtered", filteredWords)
-    if(filteredWords.length>0){
-      setWordsArray(filteredWords);
+  const [shown,setShown] = useState(false);
+
+  function updateCurrentWord(){
+    if(wordsArray.length>=1){
       let randomIndex = Math.floor(Math.random()*wordsArray.length)
       let randomWord = wordsArray[randomIndex]
       setCurrentWord(randomWord);
+      setWordsArray(wordsArray.filter(word=>word!==randomWord));
+    } 
+  }
+
+  function triggerNext(){
+    if(wordsArray.length>0){
+        updateCurrentWord()
     }else{
       setPlaying(false);
+      setWordsArray(wordsBank);
+      updateCurrentWord()
       console.log("GAME OVER")
     }
   }
 
-  return (
+  return (  
     <div className="App">
       <Header />
+    
+      {/* <div>
+      <button className="thisBtn" onClick={()=>{
+            setShown(!shown)
+          }}>SHOW ME</button>
 
-      {!playing && <button onClick={()=>{setPlaying(true); triggerNext()}}>Start!</button>}
+      <CSSTransition
+        in={shown}
+        timeout={400}
+        classNames="display"
+        // mountOnEnter
+        // unmountOnExit
+        >
+          <p class="inside">POLLAS {shown.toString()}</p>
+          
+      </CSSTransition>
+      </div> */}
+
+      {/* {!playing &&   */}
+      <NextGameButton playing={playing} setPlaying={setPlaying} updateCurrentWord={updateCurrentWord}/>
+      {/* } */}
+      
+      {/* {!playing &&  <NextGameButton setPlaying={setPlaying} updateCurrentWord={updateCurrentWord}/>} */}
+      
+
+
+
+      {playing && <GetHelp setHelped={setHelped} word={currentWord}/>}
       {playing && <div>Current target word is: {currentWord.word}. Total words left: {wordsArray.length}</div>}
-      {playing && <GetHelp wordSrc={currentWord.imgSrc}/>}
-      {playing && <GuessDisplay wordSrc={currentWord.imgSrc}/>}
+      {playing && <GuessDisplay word={currentWord} helped={helped}/>}
       {playing &&<UserInput currentWord={currentWord.word} triggerNext={triggerNext}/>}
     </div>
   );
 }
 
 export default App;
+
+
+
+{/* <Collapsible>
+<h2>Title</h2>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti assumenda a quibusdam tenetur laboriosam nihil accusantium tempore quasi perspiciatis unde.</p>
+</Collapsible> */}

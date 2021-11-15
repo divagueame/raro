@@ -7,12 +7,13 @@ const UserInput = ({currentWord, triggerNext}) => {
 
   useEffect(()=>{
     if(userInput===currentWord){
-      console.log("USE EFFECT IN")
-      triggerNext();
+      
       setIsSolved(true);
       setTimeout(() => {
+          
         setIsSolved(false);
         setUserInput('');
+        triggerNext();
       }, 1500);
 
     }
@@ -32,8 +33,7 @@ const UserInput = ({currentWord, triggerNext}) => {
   return (
     <form onSubmit={submitFunction}>
       <input type="text" autoFocus value={userInput} onChange={handleUserInput}></input>  
-      <div>user input: {userInput}</div>
-      <div>current: {currentWord}</div>
+      {/* <div>user input: {userInput}</div> */}
       <div>{isSolved && 'SOLVED!'}</div>
     </form>
     
