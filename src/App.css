@@ -10,16 +10,17 @@ html {
 
 .App {
   display: flex;
-  justify-content: space-between;
+  justify-content: stretch;
   flex-direction: column;
-  /* align-items: stretch; */
+  align-items: stretch;
   /* border: 2px rgb(255, 0, 0) solid; */
   /* margin: 0 1rem; */
   /* gap: 11rem; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
   height: 100%;
-  max-height: 100%;
+  /* max-height: 100%; */
   overflow: hidden;
+  display: block;
 }
 
 .App > * {
@@ -60,20 +61,47 @@ button:active {
    border-radius: 0;
 }
 
+.guessDisplayContainer {
+  /* background-color: rgb(212, 212, 212); */
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-content: center;
+  margin: .31rem 1rem
+}
+
+.guessDisplay {
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  
+  background-color: rgb(73, 73, 73);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+form {
+  background-color: rgb(156, 156, 156); 
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 6px;
+} 
 input[type="text"] {
-outline: none !important;
+/* outline: none !important; */
 border-color: #00000000;
 /* padding: 1rem; */
-border-bottom: 2px grey solid;
+/* border-bottom: 2px grey solid; */
 /* border-radius: 1rem; */
-font-size: 2rem;
+/* font-size: 2rem; */
 
 }
 .guess-display-img {
   /* margin: 2em; */
   padding: 1em;
-  /* max-width: 100%; */
-  /* width: 20%; */
+  width: 100%;
+  height: auto;
 }
 .thisBtn {background-color: cadetblue;
 position: relative;}
@@ -137,7 +165,6 @@ position: relative;}
   transition: all 400ms;
   
 }
-
 
 
 @font-face {

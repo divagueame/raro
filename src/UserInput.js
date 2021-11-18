@@ -34,9 +34,8 @@ const UserInput = ({currentWord, triggerNext}) => {
     <form onSubmit={submitFunction}>
       <input type="text" autoFocus value={userInput} onChange={handleUserInput}></input>  
       {/* <div>user input: {userInput}</div> */}
-      <div>{isSolved && 'SOLVED!'}</div>
+      {/* <div>{isSolved && 'SOLVED!'}</div> */}
     </form>
-    
   );
 }
  

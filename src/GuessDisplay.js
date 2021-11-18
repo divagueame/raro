@@ -1,4 +1,6 @@
-const GuessDisplay = ({word, helped}) => {
+import UserInput from './UserInput';
+
+const GuessDisplay = ({word, helped, triggerNext}) => {
 
   function splitSentence(s,i){
     let arr = [];
@@ -17,11 +19,16 @@ const GuessDisplay = ({word, helped}) => {
   }
 
   return (
-    <>
+    <div className="guessDisplayContainer">
+      <div className="guessDisplay">
+      {helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {word.word} {splitSentence(word.sentence,word.wordIndex)[1]}</p>} 
+      {!helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {hiddenWordUnderscores(word)} {splitSentence(word.sentence,word.wordIndex)[1]}</p>} 
+      <UserInput currentWord={word.word} triggerNext={triggerNext}/>
       <img className="guess-display-img" src={process.env.PUBLIC_URL + word.imgSrc} alt="Guess..." />
-      {helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {word.word} {splitSentence(word.sentence,word.wordIndex)[1]}</p>}
-      {!helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {hiddenWordUnderscores(word)} {splitSentence(word.sentence,word.wordIndex)[1]}</p>}
-    </>
+      
+      
+      </div>
+    </div>
   );
 }
  

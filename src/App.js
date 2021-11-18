@@ -4,9 +4,8 @@ import UserInput from './UserInput';
 import GuessDisplay from './GuessDisplay';
 import GetHelp from './GetHelp';
 import NextGameButton from './NextGameButton';
-import { CSSTransition } from "react-transition-group";
 import {useState, useEffect } from 'react';
-import Collapsible from './Collapsible'
+
 
 function App() {
   let wordsBank = [{
@@ -17,15 +16,15 @@ function App() {
     imgSrc: '/img/037-hot air balloon.png',
     seen: false
   },
-  // {
-  //   id: 2,
-  //   word: 'bicicleta',
-  //   wordIndex: 7,
-  //   sentence: 'Es una  muy bonita.',
-  //   imgSrc: '/img/025-bicycle.png',
-  //   seen: false
-  // },
-  // {
+  {
+    id: 2,
+    word: 'bicicleta',
+    wordIndex: 7,
+    sentence: 'Es una  muy bonita.',
+    imgSrc: '/img/025-bicycle.png',
+    seen: false
+  }
+  // ,{
   //   id: 3,
   //   word: 'limusina',
   //   wordIndex: 4,
@@ -63,8 +62,7 @@ function App() {
   const [currentWord, setCurrentWord] = useState();
   const [playing,setPlaying] = useState(false);
   const [helped,setHelped] = useState(false);
-
-  const [shown,setShown] = useState(false);
+  
 
   function updateCurrentWord(){
     if(wordsArray.length>=1){
@@ -87,40 +85,25 @@ function App() {
   }
 
   return (  
-    <div className="App">
-      <Header />
-    
-      {/* <div>
-      <button className="thisBtn" onClick={()=>{
-            setShown(!shown)
-          }}>SHOW ME</button>
+    // <div className="App">
+    <>
+      {/* <Header /> */}
 
-      <CSSTransition
-        in={shown}
-        timeout={400}
-        classNames="display"
-        // mountOnEnter
-        // unmountOnExit
-        >
-          <p class="inside">POLLAS {shown.toString()}</p>
-          
-      </CSSTransition>
-      </div> */}
-
-      {/* {!playing &&   */}
-      <NextGameButton playing={playing} setPlaying={setPlaying} updateCurrentWord={updateCurrentWord}/>
-      {/* } */}
-      
+      {!playing &&  
+      <NextGameButton updateCurrentWord={updateCurrentWord} setPlaying={setPlaying}/>
+      }
+      {/* {playing &&<UserInput currentWord={currentWord.word} triggerNext={triggerNext}/>} */}
       {/* {!playing &&  <NextGameButton setPlaying={setPlaying} updateCurrentWord={updateCurrentWord}/>} */}
       
+      {/* {playing && <GetHelp setHelped={setHelped} word={currentWord}/>} */}
+      
+      {playing && <GuessDisplay word={currentWord} helped={helped} triggerNext={triggerNext}/>}
+      
 
 
-
-      {playing && <GetHelp setHelped={setHelped} word={currentWord}/>}
-      {playing && <div>Current target word is: {currentWord.word}. Total words left: {wordsArray.length}</div>}
-      {playing && <GuessDisplay word={currentWord} helped={helped}/>}
-      {playing &&<UserInput currentWord={currentWord.word} triggerNext={triggerNext}/>}
-    </div>
+      {/* {playing && <div>Current target word is: {currentWord.word}. Total words left: {wordsArray.length}</div>} */}
+    {/* </div> */}
+    </>
   );
 }
 
