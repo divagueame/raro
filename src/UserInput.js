@@ -2,7 +2,7 @@ import AutosizeInput from 'react-input-autosize';
 
 import { useState, useEffect } from "react";
 
-const UserInput = ({word, triggerNext}) => {
+const UserInput = ({word, triggerNext, helped}) => {
   const [userInput, setUserInput] = useState("");
   const [isSolved, setIsSolved] = useState(false)
   let sentence = word.sentence
@@ -13,8 +13,6 @@ const UserInput = ({word, triggerNext}) => {
     arr[1] = s.substr(i);
     return arr
   }
-
-
 
   useEffect(()=>{
     if(userInput===word.word){
@@ -41,19 +39,22 @@ const UserInput = ({word, triggerNext}) => {
   
   function submitFunction(e){e.preventDefault()}
 
-  let adjustedWidth = ()=>{
-    let thisLength = userInput.length;
-    console.log(thisLength)
-    return '2010px'
-  }
-
   return (
-    <form onSubmit={submitFunction}> {splitSentence(sentence,word.wordIndex)[0]}
-      <AutosizeInput autoFocus className="userAnswerInput"
+    <form onSubmit={submitFunction}>
+    <span>{splitSentence(sentence,word.wordIndex)[0]}</span>
+    {helped && <AutosizeInput autoFocus className="userAnswerInput"
+	name="form-field-name"
+	value={word.word}
+  onChange={()=>{
+    console.log("sd")
+  }}
+/>}
+    {!helped && <AutosizeInput autoFocus className="userAnswerInput"
 	name="form-field-name"
 	value={userInput}
   onChange={handleUserInput}
-/>
+/>}
+  
       {/* <input type="text" autoFocus value={userInput} onChange={handleUserInput}></input>   */}
       {splitSentence(sentence,word.wordIndex)[1]}
       {/* <div>user input: {userInput}</div> */}

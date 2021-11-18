@@ -20,7 +20,7 @@ function App() {
     id: 2,
     word: 'bicicleta',
     wordIndex: 7,
-    sentence: 'Es una  muy bonita.',
+    sentence: 'Es una  muy bonita y canirasd as sd f sd fsd sdf sdf sdf fds  .',
     imgSrc: '/img/025-bicycle.png',
     seen: false
   }
@@ -90,7 +90,10 @@ function App() {
       {/* <Header /> */}
 
       {!playing &&  
-      <NextGameButton updateCurrentWord={updateCurrentWord} setPlaying={setPlaying}/>
+      <NextGameButton updateCurrentWord={updateCurrentWord} setPlaying={setPlaying} playing={playing}/>
+      }
+      {!playing &&  
+      <div className="bottom-info"> How many can you get right? </div>
       }
       {/* {playing &&<UserInput currentWord={currentWord.word} triggerNext={triggerNext}/>} */}
       {/* {!playing &&  <NextGameButton setPlaying={setPlaying} updateCurrentWord={updateCurrentWord}/>} */}
