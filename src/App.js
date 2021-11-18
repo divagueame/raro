@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Header'
 import UserInput from './UserInput';
 import GuessDisplay from './GuessDisplay';
-import GetHelp from './GetHelp';
+
 import NextGameButton from './NextGameButton';
 import {useState, useEffect } from 'react';
 
@@ -61,7 +61,7 @@ function App() {
   const [wordsArray, setWordsArray] = useState(wordsBank);
   const [currentWord, setCurrentWord] = useState();
   const [playing,setPlaying] = useState(false);
-  const [helped,setHelped] = useState(false);
+  
   
 
   function updateCurrentWord(){
@@ -97,7 +97,7 @@ function App() {
       
       {/* {playing && <GetHelp setHelped={setHelped} word={currentWord}/>} */}
       
-      {playing && <GuessDisplay word={currentWord} helped={helped} triggerNext={triggerNext}/>}
+      {playing && <GuessDisplay word={currentWord} triggerNext={triggerNext}/>}
       
 
 

@@ -1,4 +1,6 @@
 import { useState } from "react/cjs/react.development";
+import { MdHelp } from 'react-icons/md';
+
 
 const GetHelp = ({setHelped}) => {
   const [helpTime,setHelpTime] = useState(1000);
@@ -14,7 +16,12 @@ const GetHelp = ({setHelped}) => {
   }
 
 return (
-  <button className="help-btn" onClick={()=>{handleHelpBtn()}} >"Help!"</button>
+  <div  className="help-btn">
+    <MdHelp onClick={()=>{handleHelpBtn()}}/>
+  
+  </div>
+  
+
 )
 }
 export default GetHelp

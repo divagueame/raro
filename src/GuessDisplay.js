@@ -1,6 +1,10 @@
+import {useState } from 'react';
 import UserInput from './UserInput';
+import GetHelp from './GetHelp';
 
-const GuessDisplay = ({word, helped, triggerNext}) => {
+const GuessDisplay = ({word, triggerNext}) => {
+
+  const [helped,setHelped] = useState(false);
 
   function splitSentence(s,i){
     let arr = [];
@@ -21,9 +25,10 @@ const GuessDisplay = ({word, helped, triggerNext}) => {
   return (
     <div className="guessDisplayContainer">
       <div className="guessDisplay">
-      {helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {word.word} {splitSentence(word.sentence,word.wordIndex)[1]}</p>} 
-      {!helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {hiddenWordUnderscores(word)} {splitSentence(word.sentence,word.wordIndex)[1]}</p>} 
-      <UserInput currentWord={word.word} triggerNext={triggerNext}/>
+      <GetHelp setHelped={setHelped} word={word}/>
+      {/* {helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {word.word} {splitSentence(word.sentence,word.wordIndex)[1]}</p>} 
+      {!helped && <p>{splitSentence(word.sentence,word.wordIndex)[0]} {hiddenWordUnderscores(word)} {splitSentence(word.sentence,word.wordIndex)[1]}</p>}  */}
+      <UserInput word={word} triggerNext={triggerNext}/>
       <img className="guess-display-img" src={process.env.PUBLIC_URL + word.imgSrc} alt="Guess..." />
       
       
