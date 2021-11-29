@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/raro/static/css/main.d9e955b9.chunk.css",
-    "main.js": "/raro/static/js/main.9027c73e.chunk.js",
-    "main.js.map": "/raro/static/js/main.9027c73e.chunk.js.map",
+    "main.css": "/raro/static/css/main.e1f924c9.chunk.css",
+    "main.js": "/raro/static/js/main.2e76becc.chunk.js",
+    "main.js.map": "/raro/static/js/main.2e76becc.chunk.js.map",
     "runtime-main.js": "/raro/static/js/runtime-main.daca72e8.js",
     "runtime-main.js.map": "/raro/static/js/runtime-main.daca72e8.js.map",
     "static/js/2.125542b3.chunk.js": "/raro/static/js/2.125542b3.chunk.js",
     "static/js/2.125542b3.chunk.js.map": "/raro/static/js/2.125542b3.chunk.js.map",
     "index.html": "/raro/index.html",
-    "static/css/main.d9e955b9.chunk.css.map": "/raro/static/css/main.d9e955b9.chunk.css.map",
+    "static/css/main.e1f924c9.chunk.css.map": "/raro/static/css/main.e1f924c9.chunk.css.map",
     "static/js/2.125542b3.chunk.js.LICENSE.txt": "/raro/static/js/2.125542b3.chunk.js.LICENSE.txt",
     "static/media/App.css": "/raro/static/media/SecularOne-Regular.3786d92f.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.daca72e8.js",
     "static/js/2.125542b3.chunk.js",
-    "static/css/main.d9e955b9.chunk.css",
-    "static/js/main.9027c73e.chunk.js"
+    "static/css/main.e1f924c9.chunk.css",
+    "static/js/main.2e76becc.chunk.js"
   ]
 }
